@@ -1,0 +1,20 @@
+# Use a base image compatible with ARM and x86
+FROM node:14
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Bundle app source
+COPY ./src .
+
+# Install app dependencies
+RUN npm install
+
+# Expose port
+EXPOSE 8080
+
+# Define environment variables
+ENV NODE_ENV production
+
+# Run the application
+CMD ["node", "server.js"]
